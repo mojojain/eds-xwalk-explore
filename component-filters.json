@@ -21,6 +21,7 @@
   {
     "id": "section",
     "components": [
+      "heading",
       "text",
       "image",
       "button",
