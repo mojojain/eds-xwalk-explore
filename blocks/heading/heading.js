@@ -2,6 +2,7 @@
 export default function decorate(block) {
     const a = block.querySelector(':scope > div > div');
     const data = a.querySelector("p").innerHTML;
+    a.innerHTML = "";
     const h1Tag = document.createElement("h1");
     h1Tag.classList.add("test");
     h1Tag.innerHTML = data;
