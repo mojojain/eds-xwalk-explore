@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from '@kubit-ui-web/react-components'
+import { Tabs } from '@kubit-ui-web/react-components';
 
 const Component = () => {
   return (
