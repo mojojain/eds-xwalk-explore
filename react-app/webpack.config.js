@@ -53,6 +53,7 @@ module.exports = {
   entry: {
     styles: './src/app/styles/index.js',
     heading: './src/app/heading/index.jsx',
+    tabs: './src/app/tabs/index.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -68,6 +69,20 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/, // styles files
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(ttf|otf|woff|woff2|eot)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          },
+        },
       },
     ],
   },

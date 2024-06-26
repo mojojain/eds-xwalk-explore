@@ -1,4 +1,6 @@
 helix-importer-ui
 react-app
 blocks/heading
+blocks/fonts
+blocks/tabs
 scripts/vendor.js
