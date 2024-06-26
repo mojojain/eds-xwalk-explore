@@ -3,6 +3,7 @@ coverage/*
 logs/*
 node_modules/*
 react-app/node_modules/*
+react-app/dist/*
 
 helix-importer-ui
 .DS_Store
