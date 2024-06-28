@@ -52,3 +52,7 @@ main .hero-container {
   line-height: 28px;
   color: #053840;
 }
+
+.hero.block > div + div{
+    background: white;
+}
