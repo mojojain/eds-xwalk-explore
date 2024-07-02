@@ -1,6 +1,9 @@
 {
   "mappings": [
     "/content/eds-xwalk-demo/:/",
-    "/content/eds-xwalk-demo/configuration:/.helix/config.json"
+    "/content/eds-xwalk-demo/configuration:/.helix/config.json",
+    "/content/eds-xwalk-demo/forms/mortgage-calculator:mortgage-calculator.json",
+    "/content/eds-xwalk-demo/generic-lists/locations:/generic-lists/locations.json",
+    "/content/eds-xwalk-demo/placeholders:placeholders.json"
   ]
 }
