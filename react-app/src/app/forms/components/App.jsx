@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const Component = (props) => {
-    const [formData, setFormData] = useState([]);
+const Component = ({ formURL }) => {
+    const [formData, setFormData] = useState();
 
     const getData = async () => {
         try {
-            const response = await fetch(props.formURL, {
+            const response = await fetch(formURL, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -24,15 +24,29 @@ const Component = (props) => {
 
     useEffect(() => {
         getData();
-    }, [props.formURL]);
+    }, [formURL]);
 
     return (
         <div className="react-form">
-            <h1>React Form</h1>
-            <p>{props.formURL}</p>
-            <p>{formData?.data[0]?.Label}</p>
-            <p>{formData}</p>
-            <p>{formData?.total}</p>
+            <h3>Calculate Your Fee</h3>
+            <div className="react-form__sections">
+                {formData?.map((data, index) => (
+                    <div key={index} className="react-form__section">
+                        <label>{data.Label}</label>
+                        <div className="react-form__section--options">
+                            {data.Type === "select" && (
+                                <select name={data.Name}>
+                                    {data.Options.split(",").map((option, optIndex) => (
+                                        <option key={optIndex} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
