@@ -1,1 +1,40 @@
-div{display:block}
+.react-form__sections{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 38px 0px;
+}
+.react-form__section {
+    width: 33%;
+}
+h3{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #002b45;
+    font-family: "Outfit Regular", sans-serif;
+    transition: all 0.2s ease-in-out 0s;
+    text-decoration: none;
+}
+.form label {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #002b45;
+    font-family: "Outfit Regular", sans-serif;
+}
+
+.form input {
+    background: none;
+    align-self: stretch;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    color: rgb(0, 43, 69);
+    padding-left: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Outfit Regular", sans-serif;
+    border: 1px solid silver;
+}
