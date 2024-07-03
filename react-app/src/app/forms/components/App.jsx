@@ -30,7 +30,7 @@ const Component = ({ formURL }) => {
         <div className="react-form">
             <h3>Calculate Your Fee</h3>
             <div className="react-form__sections">
-                {formData?.map((data, index) => (
+                {formData?.data?.map((data, index) => (
                     <div key={index} className="react-form__section">
                         <label>{data.Label}</label>
                         <div className="react-form__section--options">
@@ -43,7 +43,13 @@ const Component = ({ formURL }) => {
                                     ))}
                                 </select>
                             )}
+                            {data.Type === "text" && (
+                                <input type="text" placeholder={data.Placeholder} required={data.Mandatory == "True" ? true : false}/>
+                            )}
                         </div>
+                        {data.Type === "submit" && (
+                            <button>{data.Label}</button>
+                        )}
                     </div>
                 ))}
             </div>
