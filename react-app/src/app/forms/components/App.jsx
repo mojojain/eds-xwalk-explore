@@ -16,7 +16,7 @@ const Component = ({ formURL }) => {
             }
             const myJson = await response.json();
             const updatedData = await Promise.all(
-                myJson.map(async (item) => {
+                myJson?.data.map(async (item) => {
                     if (item.option && typeof item.option === 'string' && item.option.endsWith('.json')) {
                         try {
                             const optionResponse = await fetch(item.option);
