@@ -58,7 +58,7 @@
                     className: "react-form"
                 }, a.createElement("h3", null, "Calculate Your Fee"), a.createElement("div", {
                     className: "react-form__sections"
-                }, t?.data?.map(((e,t)=>a.createElement("div", {
+                }, t?.map(((e,t)=>a.createElement("div", {
                     key: t,
                     className: "react-form__section"
                 }, "submit" != e.Type && a.createElement("label", null, e.Label), a.createElement("div", {
