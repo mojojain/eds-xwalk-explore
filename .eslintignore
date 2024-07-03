@@ -3,4 +3,5 @@ react-app
 blocks/heading
 blocks/fonts
 blocks/tabs
+blocks/forms
 scripts/vendor.js
