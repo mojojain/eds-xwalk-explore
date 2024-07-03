@@ -17,13 +17,13 @@ const Component = ({ formURL }) => {
             const myJson = await response.json();
             const updatedData = await Promise.all(
                 myJson?.data.map(async (item) => {
-                    if (item.option && typeof item.option === 'string' && item.option.endsWith('.json')) {
+                    if (item.Options && item.Options.endsWith('.json')) {
                         try {
-                            const optionResponse = await fetch(item.option);
+                            const optionResponse = await fetch(item.Options);
                             if (optionResponse.ok) {
                                 const optionData = await optionResponse.json();
                                 const locations = optionData?.data?.map(loc => loc.location).join(",") || "";
-                                return { ...item, option: locations };
+                                return { ...item, Options: locations };
                             }
                         } catch (error) {
                             console.error('Fetch error for option:', error);
@@ -48,7 +48,7 @@ const Component = ({ formURL }) => {
         <div className="react-form">
             <h3>Calculate Your Fee</h3>
             <div className="react-form__sections">
-                {formData?.data?.map((data, index) => (
+                {formData?.map((data, index) => (
                     <div key={index} className="react-form__section">
                         {data.Type != "submit" && (
                             <label>{data.Label}</label>
