@@ -68,7 +68,7 @@ const Component = ({ formURL }) => {
                                     ))}
                                 </select>
                             )}
-                            {/* {data.Type === "getSelect" && (
+                            {data.Type === "getSelect" && (
                                 <select name={data.Name}>
                                     {locations.map((option, optIndex) => (
                                         <option key={optIndex} value={option}>
@@ -76,7 +76,7 @@ const Component = ({ formURL }) => {
                                         </option>
                                     ))}
                                 </select>
-                            )} */}
+                            )}
                             {data.Type === "text" && (
                                 <input type="text" placeholder={data.Placeholder} required={data.Mandatory == "True" ? true : false}/>
                             )}
