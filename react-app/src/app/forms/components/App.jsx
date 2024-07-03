@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const Component = ({ formURL }) => {
     const [formData, setFormData] = useState();
-    const [locations, setLocations] = useState();
 
     const getData = async () => {
         try {
@@ -16,7 +15,6 @@ const Component = ({ formURL }) => {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const myJson = await response.json();
-            console.log("myJson",myJson);
             const updatedData = await Promise.all(
                 myJson.map(async (item) => {
                     if (item.option && typeof item.option === 'string' && item.option.endsWith('.json')) {
@@ -24,11 +22,7 @@ const Component = ({ formURL }) => {
                             const optionResponse = await fetch(item.option);
                             if (optionResponse.ok) {
                                 const optionData = await optionResponse.json();
-                                let location = [];
-                                optionData?.data.map(loc => {
-                                    location.push(loc.location);
-                                });
-                                let locations = location.join(",");
+                                const locations = optionData?.data?.map(loc => loc.location).join(",") || "";
                                 return { ...item, option: locations };
                             }
                         } catch (error) {
@@ -40,32 +34,13 @@ const Component = ({ formURL }) => {
             );
             setFormData(updatedData);
         } catch (error) {
-            console.error('Fetch error: ', error);
-        }
-    };
-
-    const getLocations = async (locationURL) => {
-        try {
-            const response = await fetch("https://main--eds-xwalk-explore--bilaltk90.hlx.page/generic-lists/locations.json", {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-            });
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const myJson = await response.json();
-            setLocations(myJson);
-        } catch (error) {
-            console.error('Fetch error: ', error);
+            console.error('Fetch error:', error);
         }
     };
 
 
     useEffect(() => {
         getData();
-        getLocations();
     }, [formURL]);
 
 
