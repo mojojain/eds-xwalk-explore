@@ -30,7 +30,9 @@ const Component = (props) => {
         <div className="react-form">
             <h1>React Form</h1>
             <p>{props.formURL}</p>
-            <p>{formData.data[0].Label}</p>
+            <p>{formData?.data[0]?.Label}</p>
+            <p>{formData}</p>
+            <p>{formData?.total}</p>
         </div>
     );
 };
