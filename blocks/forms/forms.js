@@ -33,13 +33,9 @@
                                             console.log("4", r);
                                             const a = r?.data?.map((e=>e.location)).join(",") || "";
                                             console.log("5", a);
-                                            console.log({
-                                                ...e,
-                                                option: a
-                                            });
                                             return {
                                                 ...e,
-                                                option: a
+                                                Options: a
                                             }
                                         }
                                     } catch (e) {}
