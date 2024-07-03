@@ -17,8 +17,28 @@ const Component = ({ formURL }) => {
             }
             const myJson = await response.json();
             console.log("myJson",myJson);
-            
-            setFormData(myJson);
+            const updatedData = await Promise.all(
+                myJson.map(async (item) => {
+                    if (item.option && typeof item.option === 'string' && item.option.endsWith('.json')) {
+                        try {
+                            const optionResponse = await fetch(item.option);
+                            if (optionResponse.ok) {
+                                const optionData = await optionResponse.json();
+                                let location = [];
+                                optionData?.data.map(loc => {
+                                    location.push(loc.location);
+                                });
+                                let locations = location.join(",");
+                                return { ...item, option: locations };
+                            }
+                        } catch (error) {
+                            console.error('Fetch error for option:', error);
+                        }
+                    }
+                    return item;
+                })
+            );
+            setFormData(updatedData);
         } catch (error) {
             console.error('Fetch error: ', error);
         }
@@ -61,16 +81,8 @@ const Component = ({ formURL }) => {
                         <div className="react-form__section--options">
                             {data.Type === "select" && (
                                 <select name={data.Name}>
+                                    {data.Options}
                                     {data.Options.split(",").map((option, optIndex) => (
-                                        <option key={optIndex} value={option}>
-                                            {option}
-                                        </option>
-                                    ))}
-                                </select>
-                            )}
-                            {data.Type === "getSelect" && (
-                                <select name={data.Name}>
-                                    {locations.map((option, optIndex) => (
                                         <option key={optIndex} value={option}>
                                             {option}
                                         </option>
