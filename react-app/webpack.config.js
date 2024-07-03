@@ -52,8 +52,7 @@ module.exports = {
   // entry: './src/app/product-list/index.jsx',
   entry: {
     styles: './src/app/styles/index.js',
-    heading: './src/app/heading/index.jsx',
-    tabs: './src/app/tabs/index.jsx',
+    forms: './src/app/forms/index.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
