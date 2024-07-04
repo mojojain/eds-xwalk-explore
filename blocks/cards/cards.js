@@ -3,6 +3,12 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   /* change to ul, li */
+  const dataTrans = document.createElement('h3');
+  document.addEventListener("URLReceived", function(e){
+    console.log("received");
+    console.log(e.detail.name);
+    dataTrans.innerText = e.detail.name;
+  });
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
@@ -21,4 +27,5 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
+  block.append(dataTrans);
 }
