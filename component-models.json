@@ -237,7 +237,6 @@
       {
         "component": "richtext",
         "name": "content",
-        "class": "classname"
         "value": "",
         "label": "Content",
         "valueType": "string"
