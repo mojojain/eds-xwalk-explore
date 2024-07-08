@@ -12,15 +12,17 @@
     flex-basis: 100%;
     flex-direction: column;
   }
-  
-  p {
-    color: black;
-    font-family: Figtree;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    margin: 0;
-    text-decoration: none;
+
+  div:nth-child(2) {
+    h2,h3,h4,p {
+      color: black;
+      font-family: Figtree;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin: 0;
+      text-decoration: none;
+    }
   }
 
   img {
