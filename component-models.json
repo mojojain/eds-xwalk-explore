@@ -216,5 +216,17 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "header-nav",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "Content",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
   }
 ]
