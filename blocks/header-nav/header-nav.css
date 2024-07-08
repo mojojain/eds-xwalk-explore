@@ -28,6 +28,11 @@
     padding: 2.476px 1.974px 1.99px 1.912px;
   }
 
+  ul {
+    margin: 16px 0 0 0;
+    padding: 0;
+  }
+  
   li {
     color: black;
     font-family: Figtree;
