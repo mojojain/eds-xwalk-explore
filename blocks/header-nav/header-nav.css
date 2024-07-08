@@ -12,4 +12,32 @@
     flex-basis: 100%;
     flex-direction: column;
   }
+  
+  p {
+    color: black;
+    font-family: Figtree;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 0;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    padding: 2.476px 1.974px 1.99px 1.912px;
+  }
+
+  li {
+    color: black;
+    font-family: Figtree;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 4px 16px 4px 0;
+}
+
+
 }
