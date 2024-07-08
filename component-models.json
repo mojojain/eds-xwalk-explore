@@ -17,10 +17,6 @@
         "valueType": "string",
         "options": [
           {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
             "name": "h2",
             "value": "h2"
           },
