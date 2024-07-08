@@ -40,11 +40,5 @@
     "components": [
       "card"
     ]
-  },
-  {
-    "id": "header-nav",
-    "components": [
-      "title"
-    ]
   }
 ]
