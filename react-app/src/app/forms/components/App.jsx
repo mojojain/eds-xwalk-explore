@@ -66,6 +66,7 @@ const Component = ({ formURL }) => {
             ...formValues,
             [name]: value,
         });
+
         if(min){
             validateField(name, value, min, max, desc);
         }
@@ -104,6 +105,7 @@ const Component = ({ formURL }) => {
                 button.className = 'button';
                 
                 button.addEventListener('click', function(e) {
+                    e.preventDefault();
                     [...container[index].querySelectorAll(".button")].map( item => {
                         item.classList.remove("selected");
                     })
