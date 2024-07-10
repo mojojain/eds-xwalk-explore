@@ -62,10 +62,11 @@ const Component = ({ formURL }) => {
         let min = e.target.getAttribute("data-min");
         let max =  e.target.getAttribute("data-max");
         let desc =  e.target.getAttribute("data-description");
-        setFormValues({
-            ...formValues,
+
+        setFormValues(prevFormValues => ({
+            ...prevFormValues,
             [name]: value,
-        });
+        }));
 
         if(min){
             validateField(name, value, min, max, desc);
@@ -74,10 +75,10 @@ const Component = ({ formURL }) => {
 
     useEffect(() => {
         if(!errors["cost"]){
-            setFormValues({
-                ...formValues,
-                borrow: formValues["cost"] * 80/100,
-            });
+            setFormValues(prevFormValues => ({
+                ...prevFormValues,
+                borrow: prevFormValues["cost"] * 80/100,
+            }));
         }
     }, [formValues["cost"]]);
 
