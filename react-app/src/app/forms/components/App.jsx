@@ -112,7 +112,20 @@ const Component = ({ formURL }) => {
     }
 
     const triggerForm = () => {
-        console.log(formValues);
+        var payload = {"data": formValues};
+        
+        var data = new FormData();
+        data.append( "json", JSON.stringify( payload ) );
+        
+        fetch("/test/receiver/",
+        {
+            method: "POST",
+            body: data
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){ 
+            
+         })
     }
 
     return (
