@@ -7,9 +7,14 @@
 
 .columns > div {
   display: flex;
-  flex-direction: column;
   gap: 24px;
   justify-content: center;
+  flex-direction: row;
+  overflow: scroll;
+  @media (width >= 768px) {
+    flex-direction: column;
+    overflow: unset;
+  }
 }
 
 .columns > div h5 {
@@ -38,7 +43,11 @@
   order: 1;
   background: white;
   border-radius: 24px;
-  padding: 32px;
+  padding: 24px;
+  min-width: 200px;
+  @media (width >= 768px) {
+    min-width: auto;
+    padding: 32px;
 }
 
 .columns > div > .columns-img-col {
