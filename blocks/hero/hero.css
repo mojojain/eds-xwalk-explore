@@ -21,7 +21,7 @@ main .hero-container {
 }
 
 .hero h1 {
-  max-width: 1200px;
+  max-width: 270px;
   margin-left: auto;
   margin-right: auto;
   font-size: 32px;
@@ -30,6 +30,7 @@ main .hero-container {
   margin: 0;
   @media (width >= 768px) {
     font-size: 48px;
+    max-width: 1200px;
   }
 }
 
