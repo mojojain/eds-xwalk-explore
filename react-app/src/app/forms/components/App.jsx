@@ -85,9 +85,12 @@ const Component = ({ formURL }) => {
     }, [formURL]);
 
     useEffect(() => {
-        convertOptionsToButtons("purpos",0);
-        convertOptionsToButtons("property-type",1);
-    },[])
+        let check = document.querySelectorAll('.react-form__section--options .button');
+        if(!check){
+            convertOptionsToButtons("purpos",0);
+            convertOptionsToButtons("property-type",1);
+        }
+    },[formData])
 
     const convertOptionsToButtons = (selector,index) => {
         const selectBox = document.querySelector(`select[name="${selector}"]`);
