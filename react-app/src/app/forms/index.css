@@ -2,13 +2,15 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 38px 38px;
+    gap: 30px 30px;
+    margin-top: 50px;
 }
 .react-form__section {
-    width: 30%;
+    width: 31%;
 }
-h3{
-    font-size: 24px;
+h3 {
+    position: relative;
+    font-size: 18px;
     line-height: 30px;
     font-weight: 600;
     color: #002b45; 
@@ -26,19 +28,35 @@ h3{
     font-family: "Outfit Regular", sans-serif;
 }
 
-.form input {
+.form input,.form select {
     background: none;
     align-self: stretch;
     -webkit-box-flex: 1;
     flex-grow: 1;
     color: rgb(0, 43, 69);
     padding-left: 10px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 22px;
     -webkit-font-smoothing: antialiased;
     font-family: "Outfit Regular", sans-serif;
-    border: 1px solid silver;
+    cursor: text;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(186, 199, 203);
 }
+
+.form input:hover{
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(186, 199, 203);
+}
+
+.form input:focus-visible{
+    outline: #bac7cb;
+}
+
 .react-form{
     width: 1100px;
     margin: auto;
@@ -61,8 +79,76 @@ h3{
     height: 44px;
     background: rgb(223, 0, 73);
     color: rgb(255, 255, 255);
-    font-size: 14px;
+    font-size: 12px;
     line-height: 20px;
-    font-weight: 600 !important;
+    font-weight: 600;
     text-decoration: none !important;
+}
+
+.form h3::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 42px;
+    height: 3px;
+    background: #31c3df;
+    top: 39px;
+    left: 0;
+}
+
+.form .button.selected {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 15px;
+    user-select: none;
+    cursor: pointer;
+    height: 44px;
+    border-radius: 22px;
+    font-weight: 600;
+    background-color: rgb(240, 249, 248);
+    border: 1px solid rgb(34, 136, 156);
+    color: rgb(0, 43, 69);
+    font-weight: 600 !important;
+}
+
+.form .button {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(186, 199, 203);
+    user-select: none;
+    cursor: pointer;
+    height: 44px;
+    border-radius: 22px;
+    color: black;
+    font-size: 12px;
+    line-height: 20px;
+    color: #002b45;
+    font-weight: 400;
+}
+
+.form .react-form__section--options button.button:first-child {
+    margin-right: 12px;
+}
+
+.message-left {
+    float: left;
+    font-size: 12px;
+    color: #7f95a2;
+    line-height: 24px;
+}
+
+.message-right {
+    float: right;
+    font-size: 12px;
+    color: #7f95a2;
+    line-height: 24px;
+}
+
+.message .error {
+    font-size: 12px;
+    color: #ed0a00;
 }
