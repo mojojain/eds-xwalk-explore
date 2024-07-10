@@ -70,7 +70,7 @@ h3 {
     color: rgb(255, 255, 255);
     font-size: 14px;
     line-height: 20px;
-    font-weight: 600 !important;
+    font-weight: 600;
     text-decoration: none !important;
 }
 
@@ -83,4 +83,50 @@ h3 {
     background: #31c3df;
     top: 39px;
     left: 0;
+}
+
+.form .button.selected {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 15px;
+    user-select: none;
+    cursor: pointer;
+    height: 44px;
+    border-radius: 22px;
+    font-weight: 600;
+    background-color: rgb(240, 249, 248);
+    border: 1px solid rgb(34, 136, 156);
+    color: rgb(0, 43, 69);
+    font-weight: 400 !important;
+}
+
+.form .button {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(186, 199, 203);
+    user-select: none;
+    cursor: pointer;
+    height: 44px;
+    border-radius: 22px;
+    color: black;
+    font-size: 14px;
+    line-height: 20px;
+    color: #002b45;
+    font-weight: 400 !important;
+}
+
+.form .react-form__section--options button.button:first-child {
+    margin-right: 12px;
+}
+
+.message-left {
+    float: left;
+}
+
+.message-right {
+    float: right;
 }

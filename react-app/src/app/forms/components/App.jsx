@@ -80,8 +80,29 @@ const Component = ({ formURL }) => {
 
     useEffect(() => {
         getData();
+        convertOptionsToButtons('select[name="purpos"]',0);
+        convertOptionsToButtons('select[name="property-type"]',1);
     }, [formURL]);
 
+    const convertOptionsToButtons = (selector,index) => {
+        const selectBox = document.querySelector(selector);
+        const container = document.querySelectorAll('.react-form__section--options');
+    
+        Array.from(selectBox.options).forEach(option => {
+            const button = document.createElement('button');
+            button.textContent = option.textContent;
+            button.value = option.value;
+            button.className = 'button';
+            
+            button.addEventListener('click', function() {
+                alert(`Button clicked: ${this.value}`);
+            });
+            
+            container[index].appendChild(button);
+        });
+    
+        selectBox.remove();
+    }
 
     return (
         <div className="react-form">
