@@ -31,6 +31,9 @@ main .hero-container {
   @media (width >= 768px) {
     font-size: 48px;
     max-width: 1200px;
+    font-size: 56px;
+    line-height: 62px;
+    font-weight: 600;
   }
 }
 
