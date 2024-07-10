@@ -85,7 +85,7 @@ const Component = ({ formURL }) => {
     }, [formURL]);
 
     useEffect(() => {
-        let check = document.querySelectorAll('.react-form__section--options .button');
+        let check = document.querySelector('.react-form__section--options .button');
         if(!check){
             convertOptionsToButtons("purpos",0);
             convertOptionsToButtons("property-type",1);
