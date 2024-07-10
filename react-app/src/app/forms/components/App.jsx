@@ -85,7 +85,7 @@ const Component = ({ formURL }) => {
     useEffect(() => {
         convertOptionsToButtons("purpos",0);
         convertOptionsToButtons("property-type",1);
-    },[])
+    },[updatedData])
 
     const convertOptionsToButtons = (selector,index) => {
         const selectBox = document.querySelector(`select[name="${selector}"]`);
