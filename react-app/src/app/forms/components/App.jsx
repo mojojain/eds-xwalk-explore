@@ -100,12 +100,12 @@ const Component = ({ formURL }) => {
                 button.name = option.name;
                 button.className = 'button';
                 
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(e) {
                     [...container[index].querySelectorAll(".button")].map( item => {
                         item.classList.remove("selected");
                     })
                     this.classList.add("selected");
-                    handleChange();
+                    handleChange(e);
                 });
                 
                 container[index].appendChild(button);
@@ -116,7 +116,7 @@ const Component = ({ formURL }) => {
     }
 
     const triggerForm = () => {
-        var payload = {"data": formValues};
+        var payload = {...formValues};
         
         var data = new FormData();
         data.append( "json", JSON.stringify( payload ) );
