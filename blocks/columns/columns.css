@@ -1,8 +1,20 @@
+.columns-wrapper {
+  @media (width >= 768px) {
+    background: #053840;
+    width: 100vw;
+    margin-left: -8px;
+  }
+}
+
 .columns {
   background: #053840;
   margin: 0 -8px;
   padding-top: 72px;
   padding-bottom: 64px;
+  @media (width >= 768px) {
+    margin: 8px auto;
+    max-width: 1176px;
+  }
 }
 
 .columns > div {
@@ -12,7 +24,7 @@
   flex-direction: row;
   overflow: scroll;
   @media (width >= 768px) {
-    flex-direction: column;
+    flex-direction: row;
     overflow: unset;
   }
 }
@@ -46,7 +58,7 @@
   padding: 24px;
   min-width: 200px;
   @media (width >= 768px) {
-    min-width: auto;
+    width: -webkit-fill-available;
     padding: 32px;
 }
 
