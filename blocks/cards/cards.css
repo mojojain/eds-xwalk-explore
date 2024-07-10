@@ -46,3 +46,11 @@
   color: #053840;
   line-height: 22px;
 }
+
+.cards h2 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  text-align: center;
+  color: #053840;
+}
