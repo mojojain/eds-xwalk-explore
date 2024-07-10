@@ -14,6 +14,7 @@ main .hero-container {
   height: auto;
   margin: -8px;
   @media (width >= 768px) {
+    width: -webkit-fill-available;
     height: 512px;
     min-height: 512px;
   }
@@ -25,7 +26,7 @@ main .hero-container {
   margin-right: auto;
   font-size: 32px;
   line-height: 40px;
-  color: rgb(5, 56, 64);
+  color: #053840;
   @media (width >= 768px) {
     font-size: 48px;
   }
