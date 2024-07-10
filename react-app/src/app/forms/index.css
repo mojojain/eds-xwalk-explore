@@ -147,3 +147,8 @@ h3 {
     color: #7f95a2;
     line-height: 24px;
 }
+
+.message .error {
+    font-size: 12px;
+    color: #ed0a00;
+}
