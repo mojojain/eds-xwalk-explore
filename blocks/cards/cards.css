@@ -42,11 +42,6 @@
   object-fit: cover;
 }
 
-.cards .cards-card-body p{
-  color: #053840;
-  line-height: 22px;
-}
-
 .quickcard h2 {
   font-size: 32px;
   line-height: 40px;
@@ -57,5 +52,25 @@
     font-size: 48px;
     line-height: 54px;
     margin: 32px 0 12px;
+  }
+}
+
+.cards .cards-card-body h3 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #053840;
+    margin-bottom: 8px;
+  @media (width >= 768px) {
+
+  }
+}
+
+.cards .cards-card-body p {
+  color: #053840;
+  font-size: 14px;
+  line-height: 20px;
+  @media (width >= 768px) {
+
   }
 }
