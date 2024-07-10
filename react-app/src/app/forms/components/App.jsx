@@ -85,26 +85,27 @@ const Component = ({ formURL }) => {
     useEffect(() => {
         convertOptionsToButtons("purpos",0);
         convertOptionsToButtons("property-type",1);
-    },[updatedData])
+    },[formData])
 
     const convertOptionsToButtons = (selector,index) => {
         const selectBox = document.querySelector(`select[name="${selector}"]`);
         const container = document.querySelectorAll('.react-form__section--options');
-    
-        Array.from(selectBox.options).forEach(option => {
-            const button = document.createElement('button');
-            button.textContent = option.textContent;
-            button.value = option.value;
-            button.className = 'button';
-            
-            button.addEventListener('click', function() {
-                alert(`Button clicked: ${this.value}`);
+        if(selectBox) {
+            Array.from(selectBox.options).forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option.textContent;
+                button.value = option.value;
+                button.className = 'button';
+                
+                button.addEventListener('click', function() {
+                    alert(`Button clicked: ${this.value}`);
+                });
+                
+                container[index].appendChild(button);
             });
-            
-            container[index].appendChild(button);
-        });
-    
-        selectBox.remove();
+        
+            selectBox.remove();
+        }
     }
 
     return (
