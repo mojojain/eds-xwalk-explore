@@ -80,12 +80,15 @@ const Component = ({ formURL }) => {
 
     useEffect(() => {
         getData();
-        convertOptionsToButtons('select[name="purpos"]',0);
-        convertOptionsToButtons('select[name="property-type"]',1);
     }, [formURL]);
 
+    useEffect(() => {
+        convertOptionsToButtons("purpos",0);
+        convertOptionsToButtons("property-type",1);
+    },[])
+
     const convertOptionsToButtons = (selector,index) => {
-        const selectBox = document.querySelector(selector);
+        const selectBox = document.querySelector(`select[name="${selector}"]`);
         const container = document.querySelectorAll('.react-form__section--options');
     
         Array.from(selectBox.options).forEach(option => {
