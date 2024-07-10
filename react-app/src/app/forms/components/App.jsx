@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from '@kubit-ui-web/react-components';
 
 const Component = ({ formURL }) => {
     const [formData, setFormData] = useState();
+    const [formValues, setFormValues] = useState({});
+    const [errors, setErrors] = useState({});
 
     const getData = async () => {
         try {
@@ -38,6 +41,43 @@ const Component = ({ formURL }) => {
         }
     };
 
+    const validateField = (name, value, min, max, desc) => {
+        const newErrors = { ...errors };
+        const field = formData.find(item => item.Name === name);
+        const numValue = Number(value);
+        const numValuemin = Number(min);
+        const numValuemax = Number(max);
+        if (field && !value) {
+            newErrors[name] = "Enter a value";
+        } else if(numValue < numValuemin || numValue > numValuemax){
+            desc = desc.replace('${Min}', min).replace('${Max}', max);
+            newErrors[name] = desc;
+        }else {
+            delete newErrors[name];
+        }
+        setErrors(newErrors);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        let min = e.target.getAttribute("data-min");
+        let max =  e.target.getAttribute("data-max");
+        let desc =  e.target.getAttribute("data-description");
+        setFormValues({
+            ...formValues,
+            [name]: value,
+        });
+        validateField(name, value, min, max, desc);
+    };
+
+    useEffect(() => {
+        if(!errors["cost"]){
+            setFormValues({
+                ...formValues,
+                borrow: formValues["cost"] * 80/100,
+            });
+        }
+    }, [formValues["cost"]]);
 
     useEffect(() => {
         getData();
@@ -46,7 +86,7 @@ const Component = ({ formURL }) => {
 
     return (
         <div className="react-form">
-            <h3>Calculate Your Fee</h3>
+            <h3>Calcula ti cuota</h3>
             <div className="react-form__sections">
                 {formData?.map((data, index) => (
                     <div key={index} className="react-form__section">
@@ -65,7 +105,26 @@ const Component = ({ formURL }) => {
                                 </select>
                             )}
                             {data.Type === "text" && (
-                                <input type="text" placeholder={data.Placeholder} required={data.Mandatory == "True" ? true : false}/>
+                                <>
+                                    <input 
+                                        value={formValues[data.Name] || ""} 
+                                        onChange={handleChange} 
+                                        name={data.Name} 
+                                        type="text" 
+                                        placeholder={data.Placeholder}
+                                        data-min={data.Min}
+                                        data-max={data.Max}
+                                        data-description={data.Description}
+                                        required={data.Mandatory == "True" ? true : false}
+                                    />
+                                    <div className="message">
+                                        {errors[data.Name] && <span className="error">{errors[data.Name]}</span>}
+                                        {!errors[data.Name] && (<>
+                                            <span className="message-left">Min {data.MinMaxPrefix} {data.Min} {data.MinMaxSuffix}</span>
+                                            <span className="message-right">Max {data.MinMaxPrefix} {data.Max} {data.MinMaxSuffix}</span></>
+                                        )}
+                                    </div>
+                                </>
                             )}
                         </div>
                         {data.Type === "submit" && (
