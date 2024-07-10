@@ -111,6 +111,10 @@ const Component = ({ formURL }) => {
         }
     }
 
+    const triggerForm = () => {
+        console.log(formValues);
+    }
+
     return (
         <div className="react-form">
             <h3>Calcula ti cuota</h3>
@@ -155,7 +159,7 @@ const Component = ({ formURL }) => {
                             )}
                         </div>
                         {data.Type === "submit" && (
-                            <button>{data.Label}</button>
+                            <button onClick={triggerForm} >{data.Label}</button>
                         )}
                     </div>
                 ))}
