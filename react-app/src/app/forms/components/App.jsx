@@ -122,6 +122,7 @@ const Component = ({ formURL }) => {
     }
 
     const triggerForm = () => {
+        if(Object.keys(formValues).length == 6){
         var payload = {...formValues};
         
         var data = new FormData();
@@ -135,7 +136,10 @@ const Component = ({ formURL }) => {
         .then(function(res){ return res.json(); })
         .then(function(data){ 
 
-         })
+         });
+        }else{
+            alert("Please fill all fields of the form");
+        }
     }
 
     return (
