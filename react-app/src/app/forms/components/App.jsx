@@ -98,7 +98,10 @@ const Component = ({ formURL }) => {
                 button.className = 'button';
                 
                 button.addEventListener('click', function() {
-                    alert(`Button clicked: ${this.value}`);
+                    [...container[index].querySelectorAll(".button")].map( item => {
+                        item.classList.remove("selected");
+                    })
+                    this.classList.add("selected");
                 });
                 
                 container[index].appendChild(button);
