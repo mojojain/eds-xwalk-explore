@@ -100,7 +100,7 @@ const Component = ({ formURL }) => {
                 const button = document.createElement('button');
                 button.textContent = option.textContent;
                 button.value = option.value;
-                button.name = option.name;
+                button.name = selectBox.name;
                 button.className = 'button';
                 
                 button.addEventListener('click', function(e) {
