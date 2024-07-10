@@ -66,7 +66,9 @@ const Component = ({ formURL }) => {
             ...formValues,
             [name]: value,
         });
-        validateField(name, value, min, max, desc);
+        if(min){
+            validateField(name, value, min, max, desc);
+        }
     };
 
     useEffect(() => {
@@ -95,6 +97,7 @@ const Component = ({ formURL }) => {
                 const button = document.createElement('button');
                 button.textContent = option.textContent;
                 button.value = option.value;
+                button.name = option.name;
                 button.className = 'button';
                 
                 button.addEventListener('click', function() {
@@ -102,6 +105,7 @@ const Component = ({ formURL }) => {
                         item.classList.remove("selected");
                     })
                     this.classList.add("selected");
+                    handleChange();
                 });
                 
                 container[index].appendChild(button);
@@ -124,7 +128,7 @@ const Component = ({ formURL }) => {
         })
         .then(function(res){ return res.json(); })
         .then(function(data){ 
-            
+
          })
     }
 
@@ -139,8 +143,7 @@ const Component = ({ formURL }) => {
                         )}
                         <div className="react-form__section--options">
                             {data.Type === "select" && (
-                                <select name={data.Name}>
-                                    {data.Options}
+                                <select onChange={handleChange} name={data.Name}>
                                     {data.Options.split(",").map((option, optIndex) => (
                                         <option key={optIndex} value={option}>
                                             {option}
