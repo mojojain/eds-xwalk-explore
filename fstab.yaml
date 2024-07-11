@@ -1,5 +1,2 @@
 mountpoints:
-  /:
-    url: "https://author-p136163-e1367963.adobeaemcloud.com/bin/franklin.delivery/bilaltk90/eds-xwalk-explore/main"
-    type: "markup"
-    suffix: ".html"
+  /: https://adobe.sharepoint.com/:f:/r/sites/SantanderGlobalTechnologyandOperationsSLU/Shared%20Documents/S3%20-%20AEM%20Sites/EDS-POC
