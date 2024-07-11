@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--eds-xwalk-explore--bilaltk90.hlx.page/
-- Live: https://main--eds-xwalk-explore--bilaltk90.hlx.live/
+- Preview: https://main--eds-xwalk-explore--mojojain.hlx.page/
+- Live: https://main--eds-xwalk-explore--mojojain.hlx.live/
 
 ## Installation
 
