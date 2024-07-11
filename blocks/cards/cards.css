@@ -21,11 +21,13 @@
 .cards > ul > li {
   border: 1px solid var(--dark-color);
   background-color: var(--background-color);
+  display: flex;
 }
 
 .cards .cards-card-body {
   margin: 16px;
   text-align: center;
+  width: -webkit-fill-available;
 }
 
 .cards .cards-card-image {
